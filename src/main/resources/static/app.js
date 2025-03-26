@@ -1,20 +1,19 @@
 var app = (function () {
     var stompClient = null;
 
-    var connectAndSubscribe = function () {
-        console.info('Conectando a WS...');
+    var connectAndSubscribe = function (drawingId) {
+        console.info('Conectando a WS para el dibujo: ' + drawingId);
         var socket = new SockJS('/stompendpoint');
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, function (frame) {
             console.log('Conectado: ' + frame);
+            let topic = "/topic/newpoint." + drawingId; // Tópico dinámico basado en el ID
 
-            stompClient.subscribe('/topic/newpoint', function (message) {
-                console.log("Mensaje recibido:", message.body);
+            stompClient.subscribe(topic, function (message) {
+                console.log("Mensaje recibido en " + topic + ":", message.body);
                 var theObject = JSON.parse(message.body);
-                console.log('Objeto parseado', theObject);
-
-                alert("Nuevo punto recibido: (" + theObject.x + ", " + theObject.y + ")");
+                alert("Nuevo punto recibido en " + drawingId + ": (" + theObject.x + ", " + theObject.y + ")");
                 addPointToCanvas(theObject);
             });
         });
@@ -34,9 +33,6 @@ var app = (function () {
         init: function () {
             var can = document.getElementById("canvas");
 
-            // Conectar WebSocket
-            connectAndSubscribe();
-
             // Evento de clic en el canvas
             can.addEventListener("click", function (evt) {
                 var rect = can.getBoundingClientRect();
@@ -51,6 +47,16 @@ var app = (function () {
                 var y = document.getElementById("y").value;
                 app.publishPoint(parseInt(x), parseInt(y));
             });
+
+            // Evento del botón "Conectarse"
+            document.getElementById("connectBtn").addEventListener("click", function () {
+                var drawingId = document.getElementById("drawingId").value;
+                if (drawingId) {
+                    connectAndSubscribe(drawingId);
+                } else {
+                    alert("Ingrese un ID de dibujo para conectarse.");
+                }
+            });
         },
 
         publishPoint: function (px, py) {
@@ -62,8 +68,11 @@ var app = (function () {
 
             addPointToCanvas(pt);
 
-            if (stompClient !== null) {
-                stompClient.send("/app/newpoint", {}, jsonData);
+            var drawingId = document.getElementById("drawingId").value;
+            if (stompClient !== null && drawingId) {
+                stompClient.send("/app/newpoint." + drawingId, {}, jsonData);
+            } else {
+                alert("No está conectado a un dibujo. Conéctese primero.");
             }
         },
 
