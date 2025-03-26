@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Paint Collaborative</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Carga de librerías necesarias -->
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+</head>
+
+<body>
+<h2>Paint Collaborative</h2>
+
+<!-- Inputs y botón para enviar puntos -->
+X: <input id="x" type="number" placeholder="Ingrese X">
+Y: <input id="y" type="number" placeholder="Ingrese Y">
+<button id="sendPointBtn">Enviar Punto</button>
+
+<canvas id="canvas" width="800" height="600"></canvas>
+
+<!-- Cargar la lógica de la app -->
+<script src="/app.js"></script>
+</body>
+</html>
