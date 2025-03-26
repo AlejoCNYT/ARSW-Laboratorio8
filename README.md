@@ -36,19 +36,36 @@ Para esto, realice lo siguiente:
 	//creando un objeto literal
 	stompClient.send("/topic/newpoint", {}, JSON.stringify({x:10,y:10}));
 	```
+![imagen](https://github.com/user-attachments/assets/d92e830b-fe3c-455c-a9c6-7d85bc1ec357)
 
 	```javascript
 	//enviando un objeto creado a partir de una clase
 	stompClient.send("/topic/newpoint", {}, JSON.stringify(pt)); 
 	```
 
+
 2. Dentro del módulo JavaScript modifique la función de conexión/suscripción al WebSocket, para que la aplicación se suscriba al tópico "/topic/newpoint" (en lugar del tópico /TOPICOXX). Asocie como 'callback' de este suscriptor una función que muestre en un mensaje de alerta (alert()) el evento recibido. Como se sabe que en el tópico indicado se publicarán sólo puntos, extraiga el contenido enviado con el evento (objeto JavaScript en versión de texto), conviértalo en objeto JSON, y extraiga de éste sus propiedades (coordenadas X y Y). Para extraer el contenido del evento use la propiedad 'body' del mismo, y para convertirlo en objeto, use JSON.parse. Por ejemplo:
+
+	![imagen](https://github.com/user-attachments/assets/ac9cff51-7ed9-4a12-971a-5b9b5727e65d)
 
 	```javascript
 	var theObject=JSON.parse(message.body);
 	```
+ 
 3. Compile y ejecute su aplicación. Abra la aplicación en varias pestañas diferentes (para evitar problemas con el caché del navegador, use el modo 'incógnito' en cada prueba).
+
+![imagen](https://github.com/user-attachments/assets/d4812ef2-4a72-4386-aede-1e90c81f4b17)
+
+![imagen](https://github.com/user-attachments/assets/44d23e17-5d17-411d-9d4d-f8d0e4dfa24c)
+   
 4. Ingrese los datos, ejecute la acción del botón, y verifique que en todas la pestañas se haya lanzado la alerta con los datos ingresados.
+
+![imagen](https://github.com/user-attachments/assets/36cb94f7-a6ae-4401-a6d6-c8e59f74ccfb)
+
+![imagen](https://github.com/user-attachments/assets/712f615c-dc21-4fe4-b67e-9623d1b4d9fa)
+
+![imagen](https://github.com/user-attachments/assets/dc48596b-404e-4e70-88f1-c612a658c085)
+
 
 5. Haga commit de lo realizado, para demarcar el avance de la parte 2.
 
