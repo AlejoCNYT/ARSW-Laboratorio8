@@ -37,6 +37,9 @@ Para esto, realice lo siguiente:
 	stompClient.send("/topic/newpoint", {}, JSON.stringify({x:10,y:10}));
 	```
 
+![imagen](https://github.com/user-attachments/assets/41a5d24e-8b2b-4094-a96a-58bc9ba05b6f)
+
+
 	```javascript
 	//enviando un objeto creado a partir de una clase
 	stompClient.send("/topic/newpoint", {}, JSON.stringify(pt)); 
@@ -47,8 +50,21 @@ Para esto, realice lo siguiente:
 	```javascript
 	var theObject=JSON.parse(message.body);
 	```
+
+![imagen](https://github.com/user-attachments/assets/6a9699bd-a71f-4241-b32c-3cada935e7a4)
+ 
 3. Compile y ejecute su aplicación. Abra la aplicación en varias pestañas diferentes (para evitar problemas con el caché del navegador, use el modo 'incógnito' en cada prueba).
+
+![imagen](https://github.com/user-attachments/assets/9343a9f3-b58c-4f67-b86b-567f42b5d9b9)
+
+
 4. Ingrese los datos, ejecute la acción del botón, y verifique que en todas la pestañas se haya lanzado la alerta con los datos ingresados.
+
+![imagen](https://github.com/user-attachments/assets/fa1a6c4a-2eb6-442b-9e27-af032c282059)
+
+![imagen](https://github.com/user-attachments/assets/45389ba9-9ca0-450e-97ac-782c1d6c2b60)
+
+![imagen](https://github.com/user-attachments/assets/90316687-e042-4d21-b71c-2649aa186232)
 
 5. Haga commit de lo realizado, para demarcar el avance de la parte 2.
 
