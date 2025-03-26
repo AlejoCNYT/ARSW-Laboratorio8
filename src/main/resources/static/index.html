@@ -6,18 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Carga de librerías necesarias -->
-    <script src="/webjars/jquery/jquery.min.js"></script>
-    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
-    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- SockJS -->
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.6.1/dist/sockjs.min.js"></script>
+
+    <!-- STOMP -->
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
 </head>
 
 <body>
 <h2>Paint Collaborative</h2>
 
 <!-- Inputs y botón para enviar puntos -->
-X: <input id="x" type="number" placeholder="Ingrese X">
-Y: <input id="y" type="number" placeholder="Ingrese Y">
+<label for="x">X:</label>
+<input id="x" type="number" placeholder="Ingrese X">
+
+<label for="y">Y:</label>
+<input id="y" type="number" placeholder="Ingrese Y">
+
+<label for="drawingId">ID de dibujo:</label>
+<input id="drawingId" type="number" placeholder="Ingrese ID del dibujo">
+
 <button id="sendPointBtn">Enviar Punto</button>
+<button id="connectBtn">Conectar al dibujo</button>
 
 <canvas id="canvas" width="800" height="600"></canvas>
 
