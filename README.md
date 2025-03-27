@@ -113,7 +113,8 @@ Ajuste la aplicación anterior para que pueda manejar más de un dibujo a la vez
 
 3. De la misma manera, haga que las publicaciones se realicen al tópico asociado al identificador ingresado por el usuario.
 
-	
+	![imagen](https://github.com/user-attachments/assets/b685ee21-ce62-4403-97f6-c85d433d0bf9)
+
 
 4. Rectifique que se puedan realizar dos dibujos de forma independiente, cada uno de éstos entre dos o más clientes.ts/assets/053aae54-0dd3-4922-abd3-f94da9725f05)
 
