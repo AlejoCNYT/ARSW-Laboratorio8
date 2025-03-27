@@ -4,24 +4,44 @@
     <title>Paint Collaborative</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Carga de librerías necesarias -->
-    <script src="/webjars/jquery/jquery.min.js"></script>
-    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
-    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <!-- Carga de dependencias en orden CORRECTO -->
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.6.1/dist/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+            margin-top: 10px;
+        }
+        .controls {
+            margin-bottom: 10px;
+        }
+        .status {
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
 </head>
-
 <body>
+<!-- Interfaz de usuario -->
 <h2>Paint Collaborative</h2>
-
-<!-- Inputs y botón para enviar puntos -->
-X: <input id="x" type="number" placeholder="Ingrese X">
-Y: <input id="y" type="number" placeholder="Ingrese Y">
-<button id="sendPointBtn">Enviar Punto</button>
-
+<div class="controls">
+    <label for="drawingId">ID de dibujo:</label>
+    <input id="drawingId" type="text" placeholder="Ingrese ID del dibujo">
+    <button id="connectBtn">Conectar</button>
+    <button id="disconnectBtn" disabled>Desconectar</button>
+    <span id="connectionStatus" class="status">Desconectado</span>
+</div>
+<div class="controls">
+    <label for="x">X:</label>
+    <input id="x" type="number" placeholder="X">
+    <label for="y">Y:</label>
+    <input id="y" type="number" placeholder="Y">
+    <button id="sendPointBtn">Enviar Punto</button>
+    <button id="clearBtn">Limpiar Canvas</button>
+</div>
 <canvas id="canvas" width="800" height="600"></canvas>
 
-<!-- Cargar la lógica de la app -->
-<script src="/app.js"></script>
+<!-- Cargar app.js al final -->
+<script src="app.js"></script>
 </body>
 </html>

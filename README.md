@@ -93,37 +93,8 @@ Para hacer mas útil la aplicación, en lugar de capturar las coordenadas con ca
 Ajuste la aplicación anterior para que pueda manejar más de un dibujo a la vez, manteniendo tópicos independientes. Para esto:
 
 1. Agregue un campo en la vista, en el cual el usuario pueda ingresar un número. El número corresponderá al identificador del dibujo que se creará.
-
-	![imagen](https://github.com/user-attachments/assets/c3751569-6022-4f0e-a83c-fed73b8da5c2)
-
 2. Modifique la aplicación para que, en lugar de conectarse y suscribirse automáticamente (en la función init()), lo haga a través de botón 'conectarse'. Éste, al oprimirse debe realizar la conexión y suscribir al cliente a un tópico que tenga un nombre dinámico, asociado el identificador ingresado, por ejemplo: /topic/newpoint.25, topic/newpoint.80, para los dibujos 25 y 80 respectivamente.
-
-![imagen](https://github.com/user-attachmen
-Ajuste la aplicación anterior para que pueda manejar más de un dibujo a la vez, manteniendo tópicos independientes. Para esto:
-
-1. Agregue un campo en la vista, en el cual el usuario pueda ingresar un número. El número corresponderá al identificador del dibujo que se creará.
-
-	![imagen](https://github.com/user-attachments/assets/c3751569-6022-4f0e-a83c-fed73b8da5c2)
-
-2. Modifique la aplicación para que, en lugar de conectarse y suscribirse automáticamente (en la función init()), lo haga a través de botón 'conectarse'. Éste, al oprimirse debe realizar la conexión y suscribir al cliente a un tópico que tenga un nombre dinámico, asociado el identificador ingresado, por ejemplo: /topic/newpoint.25, topic/newpoint.80, para los dibujos 25 y 80 respectivamente.
-
-![imagen](https://github.com/user-attachments/assets/053aae54-0dd3-4922-abd3-f94da9725f05)
-
-![imagen](https://github.com/user-attachments/assets/b120822f-8d49-4226-abc3-d41db05465f6)
-
 3. De la misma manera, haga que las publicaciones se realicen al tópico asociado al identificador ingresado por el usuario.
-
-	![imagen](https://github.com/user-attachments/assets/b685ee21-ce62-4403-97f6-c85d433d0bf9)
-
-
-4. Rectifique que se puedan realizar dos dibujos de forma independiente, cada uno de éstos entre dos o más clientes.ts/assets/053aae54-0dd3-4922-abd3-f94da9725f05)
-
-![imagen](https://github.com/user-attachments/assets/b120822f-8d49-4226-abc3-d41db05465f6)
-
-3. De la misma manera, haga que las publicaciones se realicen al tópico asociado al identificador ingresado por el usuario.
-
-	
-
 4. Rectifique que se puedan realizar dos dibujos de forma independiente, cada uno de éstos entre dos o más clientes.
 
 	```bash
